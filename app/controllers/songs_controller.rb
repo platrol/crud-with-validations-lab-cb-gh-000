@@ -8,7 +8,7 @@ class SongsController < ApplicationController
   def edit
     @song = Song.find(params[:id])
   end
-  def new 
+  def new
     @song = Song.new
   end
   def create
@@ -27,11 +27,12 @@ class SongsController < ApplicationController
       render :edit
     end
   end
-  def destroy
-    Song.find(params[:id]).destroy
-        redirect_to songs_path
 
-  end
+    def destroy
+      @song = Song.find(params[:id])
+      @song.destroy
+      redirect_to songs_url
+    end
   private
   def post_params(*arg)
     params.require(:song).permit(*arg)
