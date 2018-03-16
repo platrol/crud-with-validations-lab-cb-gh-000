@@ -8,6 +8,9 @@ class SongsController < ApplicationController
   def edit
     @song = Song.find(params[:id])
   end
+  def new 
+    @song = Song.new
+  end
   def create
     @song = Song.new(post_params(:title, :released, :release_year, :artist_name, :genre))
     if @song.save
