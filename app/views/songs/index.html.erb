@@ -6,6 +6,7 @@
     <td><%= song.release_year %></td>
     <td><%= song.genre %></td>
     <td><%= song.artist_name %></td>
+    <%= link_to "delete", method: :delete, date: {confirm: 'realiy?'} %>
   </tr>
 <% end %>
 </tbody>
